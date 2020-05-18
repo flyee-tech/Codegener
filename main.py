@@ -6,7 +6,7 @@ from configparser import ConfigParser
 import pandas as pd
 import pymysql
 
-project_path = '/Users/Peiel/WorkSpace/oulu_project/oulu/src/main/java/'
+project_path = '/Users/Peiel/WorkSpace/oulu/oulu/src/main/java/'
 model_path = project_path + 'com/niuban/oulu/automation/model/'
 mapper_path = project_path + 'com/niuban/oulu/automation/mapper/'
 package_base = 'com.niuban.oulu.automation.'
@@ -118,6 +118,8 @@ def main():
         conn = pymysql.connect(host=str(host), port=3306, user=str(user), passwd=str(passwd), db=str(db))
         df = pd.read_sql('show tables;', con=conn)
         df = df[df.Tables_in_oluplaza_dev.str.startswith("user")]
+
+        # df.at['1000'] = ['mobile_send_email']
 
         for index, row in df.iterrows():
             table_name, df_desc = getTabelDesc(conn, row['Tables_in_oluplaza_dev'])
