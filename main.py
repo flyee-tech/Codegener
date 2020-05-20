@@ -120,6 +120,7 @@ def main():
         df = df[df.Tables_in_oluplaza_dev.str.startswith("user")]
 
         # df.at['1000'] = ['mobile_send_email']
+        # df.loc['1000'] = 'mobile_send_email'
 
         for index, row in df.iterrows():
             table_name, df_desc = getTabelDesc(conn, row['Tables_in_oluplaza_dev'])
