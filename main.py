@@ -117,7 +117,7 @@ def main():
 
         conn = pymysql.connect(host=str(host), port=3306, user=str(user), passwd=str(passwd), db=str(db))
         df = pd.read_sql('show tables;', con=conn)
-        df = df[df.Tables_in_oluplaza_dev.str.startswith("user")]
+        # df = df[df.Tables_in_oluplaza_dev.str.startswith("user")]
 
         # df.at['1000'] = ['mobile_send_email']
         # df.loc['1000'] = 'mobile_send_email'
