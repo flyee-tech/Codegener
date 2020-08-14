@@ -7,13 +7,7 @@ import pandas as pd
 import pymysql
 
 
-# project_path = '/Users/Peiel/WorkSpace/coder-notes/src/main/java/'
-# model_path = project_path + 'com/peiel/notes/automation/model/'
-# mapper_path = project_path + 'com/peiel/notes/automation/mapper/'
-# package_base = 'com.peiel.notes.automation.'
-
-# project_path = '/Users/Peiel/WorkSpace/oulu/oulu/src/main/java/'
-project_path = '/Users/Peiel/WorkSpace/oulu/oulu-manager/src/main/java/'
+project_path = '/Users/Peiel/oulu/oulu-manager/src/main/java/'
 model_path = project_path + 'com/niuban/oulu/automation/model/'
 mapper_path = project_path + 'com/niuban/oulu/automation/mapper/'
 package_base = 'com.niuban.oulu.automation.'
@@ -130,7 +124,6 @@ def main():
         # df.loc['1000'] = 'mobile_send_email'
 
         for index, row in df.iterrows():
-            # table_name, df_desc = getTabelDesc(conn, row['Tables_in_peiel'])
             table_name, df_desc = getTabelDesc(conn, row['Tables_in_oluplaza_dev'])
             className, entiry_content = genEntity(table_name, df_desc)
             writeFile(model_path + className + '.java', entiry_content)
